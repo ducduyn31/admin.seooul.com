@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@nebular/theme/styles/global/bootstrap/breakpoints";
+
+@import "~@nebular/theme/styles/globals";
+@import "/assets/styles/themes";
+
+@import "assets/styles/bootstrap-rtl";
+@import "assets/styles/pace.theme";
+
+@include nb-install() {
+  @include nb-theme-global();
+
+  .custom-control .custom-control-indicator {
+    border-radius: 50%;
+  }
+
+  @include ngx-pace-theme();
+
+  @include bootstrap-rtl();
+}

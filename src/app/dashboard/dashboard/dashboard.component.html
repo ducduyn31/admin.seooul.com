@@ -1,0 +1,36 @@
+<nb-layout [center]="layout.id === 'center-column'" [windowMode]="true">
+  <nb-layout-header [fixed]="true">
+    <app-header [position]="sidebar.id === 'left' ? 'normal': 'inverse'"></app-header>
+  </nb-layout-header>
+
+  <nb-sidebar class="menu-sidebar" [tag]="'menu-sidebar'" [responsive]="true" [right]="sidebar.id === 'right'">
+    <nb-sidebar-header>
+      <a href="#" class="btn btn-hero-success main-btn">
+        <i class="fa fa-2x fa-angle-right"></i> <span>Seooul.com</span>
+      </a>
+    </nb-sidebar-header>
+    <ng-content select="nb-menu"></ng-content>
+  </nb-sidebar>
+
+  <nb-layout-column class="main-content">
+    <router-outlet></router-outlet>
+  </nb-layout-column>
+
+  <nb-layout-column class="small" [left]="true" *ngIf="layout.id === 'two-column' || layout.id === 'three-column'">
+    <nb-menu [items]="subMenu"></nb-menu>
+  </nb-layout-column>
+
+  <nb-layout-column right class="small" *ngIf="layout.id === 'three-column'">
+    <nb-menu [items]="subMenu"></nb-menu>
+  </nb-layout-column>
+
+  <nb-layout-footer fixed>
+    <app-footer></app-footer>
+  </nb-layout-footer>
+  <nb-sidebar class="settings-sidebar"
+              tag="settings-sidebar"
+              state="collapsed"
+              fixed
+              [right]="sidebar.id !== 'right'">
+  </nb-sidebar>
+</nb-layout>
