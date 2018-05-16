@@ -15,6 +15,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'News Manager',
     icon: 'nb-tables',
-    link: '/home/news'
+    link: '/home/news',
+    children: [
+      {
+        title: 'News List',
+        link: '/home/news/list'
+      },
+      {
+        title: 'News Edit',
+        link: '/home/news/edit'
+      }
+    ]
   }
 ];

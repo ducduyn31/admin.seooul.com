@@ -16,7 +16,11 @@ const routes: Routes = [
       },
       {
         path: 'news',
-        component: NewsComponent
+        loadChildren: 'app/dashboard/dashboard/news/news.module#NewsModule'
+      },
+      {
+        path: '',
+        redirectTo: 'users'
       }
     ]
   }
